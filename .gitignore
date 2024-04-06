@@ -1,0 +1,15 @@
+*target/
+shared_resources/
+videos
+records
+*.DS_Store
+.DS_Store
+*/.DS_Store
+projects/config-server-files/
+*.idea/
+*.mvn/
+*mvnw*
+projects/docker-files/grafana
+projects/docker-files/mysql/
+projects/docker-files/data/
+projects/docker-files/keycloack/
