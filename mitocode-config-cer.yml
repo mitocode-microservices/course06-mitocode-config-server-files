@@ -1,3 +1,4 @@
 mitocode:
-  course: Microservicios con Spring Cloud - Certification
+  course:
     instructor: Jonathan Choy
+    description: Microservicios con Spring Cloud - Certification
