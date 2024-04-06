@@ -2,3 +2,4 @@ mitocode:
   course:
     instructor: Jonathan Choy
     description: Microservicios con Spring Cloud - Certification
+    password: '{cipher}d864a3725c55ea5b24ff4ed224cdf53a8b6b176e356d5773ca98b3340bf83f59'
