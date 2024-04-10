@@ -1,1 +1,2 @@
-General Property
+server:
+  port: 9095
