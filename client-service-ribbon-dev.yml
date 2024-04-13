@@ -22,3 +22,14 @@ management:
       exposure:
         include: '*'
         base-path: /actuator
+  info:
+    env:
+      enabled: true
+
+  health:
+    refresh:
+      enabled: true
+
+  metrics:
+    refresh:
+      enabled: true
