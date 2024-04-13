@@ -13,7 +13,7 @@ spring:
     databasePlatform: 
     hibernate:
       ddl-auto: create
-    show: true
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
