@@ -25,6 +25,10 @@ spring:
 #hibernate:
   #dialect: org.hibernate.dialect.PostgreSQLDialect
 
+hibernate:
+  hbm2dll:
+    auto: create
+
 #Actuator configuration
 info:
   app:
