@@ -7,10 +7,3 @@ info:
     name: Client Service OpenFeign
     description: Cliente con OpenFeign
     version: 0.0.1
-
-product-service:
-  ribbon:
-    eureka: 
-      enabled: false
-    listOfServers: localhost:9020, localhost:9021, localhost:9023
-    ServerListRefreshInterval: 1500
