@@ -19,7 +19,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: ${POSTGRESQL.URL.CONNECTION:jdbc:postgresql://localhost:5432/mitocode}
+    url: ${POSTGRESQL.URL.CONNECTION:jdbc:postgresql://localhost:5432/mitocode?createDatabaseIfNotExist=true}
     username: mitocode
     password: mitocode
 #hibernate:
