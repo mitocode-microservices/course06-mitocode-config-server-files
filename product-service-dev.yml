@@ -29,6 +29,12 @@ hibernate:
   hbm2dll:
     auto: create
 
+javax:
+  persistence:
+    schema-generation:
+      database:
+        action: create
+
 #Actuator configuration
 info:
   app:
