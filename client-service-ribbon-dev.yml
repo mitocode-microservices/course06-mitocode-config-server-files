@@ -22,3 +22,6 @@ management:
       exposure:
         include: '*'
         base-path: /actuator
+        enabled: true
+      enabled: true
+    enabled: true
