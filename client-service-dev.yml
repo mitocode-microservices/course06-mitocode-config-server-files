@@ -2,8 +2,6 @@ server:
   port: 9030
 
 #Actuator configuration
-
-#Actuator configuration
 info:
   app:
     name: Client Service OpenFeign
@@ -16,3 +14,19 @@ management:
       exposure:
         include: '*'
         base-path: /actuator
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      product-service:
+        slidingWindowSize: 12
+        failureRateThreshold: 40
+        waitDurationInOpenState: 10
+        permittedNumberOfCallsInHalfOpenState: 8
+        slowCallRateThreshold: 20
+        slowCallDurationThreshold: 500ms
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+
+    instances:
+      mitocode: # Nombre a mapear dentro del @CircuitBreaker
+        base-config: product-service
