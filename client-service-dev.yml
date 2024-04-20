@@ -40,13 +40,13 @@ resilience4j:
       mitocode-user:
         base-config: user-service-cb      
 
-          
+
   timelimiter:
     configs:
       product-service-tl:
         timeoutDuration: 500ms
     instances:
-      mitocode-product-tl
+      mitocode-product-tl:
         base-config: product-service-tl
 
 
