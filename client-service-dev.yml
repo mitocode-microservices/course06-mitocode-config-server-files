@@ -2,8 +2,17 @@ server:
   port: 9030
 
 #Actuator configuration
+
+#Actuator configuration
 info:
   app:
     name: Client Service OpenFeign
     description: Cliente con OpenFeign
     version: 0.0.1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        base-path: /actuator
