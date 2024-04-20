@@ -6,6 +6,7 @@ spring:
   cloud:
     gateway:
       routes:        
+
         - id: user-service-route
           uri: lb://user-service # http://service1.com, http://service2.com
           predicates:
@@ -16,4 +17,6 @@ spring:
         - id: product-service-route
           uri: lb://product-service # http://service1.com, http://service2.com
           predicates:
-            - Path=/api/product-service/**
+            - Path=/api/product-service/v1/**
+         filters:
+            - StripPrefix=2
