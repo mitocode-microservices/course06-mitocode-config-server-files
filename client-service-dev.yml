@@ -18,7 +18,7 @@ management:
 resilience4j:
   circuitbreaker:
     configs:
-      product-service:
+      product-service-cb:
         slidingWindowSize: 12
         failureRateThreshold: 40
         waitDurationInOpenState: 10
@@ -26,7 +26,30 @@ resilience4j:
         slowCallRateThreshold: 20
         slowCallDurationThreshold: 500ms
         automaticTransitionFromOpenToHalfOpenEnabled: true
-
+      user-service-cb:
+        slidingWindowSize: 12
+        failureRateThreshold: 40
+        waitDurationInOpenState: 10
+        permittedNumberOfCallsInHalfOpenState: 8
+        slowCallRateThreshold: 20
+        slowCallDurationThreshold: 500ms
+        automaticTransitionFromOpenToHalfOpenEnabled: true
     instances:
-      mitocode: # Nombre a mapear dentro del @CircuitBreaker
-        base-config: product-service
+      mitocode-product: # Nombre a mapear dentro del @CircuitBreaker
+        base-config: product-service-cb
+      mitocode-user:
+        base-config: user-service-cb      
+
+          
+  timelimiter:
+    configs:
+      product-service-tl:
+        timeoutDuration: 500ms
+    instances:
+      mitocode-product-tl
+        base-config: product-service-tl
+
+
+
+
+
