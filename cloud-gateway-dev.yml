@@ -17,6 +17,6 @@ spring:
         - id: product-service-route
           uri: lb://product-service # http://service1.com, http://service2.com
           predicates:
-            - Path=/api/product-service/v1/**
-         filters:
+            - Path=/api/product-service/**
+          filters:
             - StripPrefix=2
