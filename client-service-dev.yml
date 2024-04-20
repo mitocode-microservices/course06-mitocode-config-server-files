@@ -25,7 +25,7 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 8
         slowCallRateThreshold: 20
         slowCallDurationThreshold: 500ms
-        automaticTransitionFromOpenToHalfOpenEnabled: true
+        # automaticTransitionFromOpenToHalfOpenEnabled: true
 
     instances:
       mitocode: # Nombre a mapear dentro del @CircuitBreaker
