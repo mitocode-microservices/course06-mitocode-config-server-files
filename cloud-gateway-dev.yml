@@ -44,6 +44,7 @@ spring:
               args:
                 name: mitocode-product
                 statusCodes: 400,401,403,500,503,504
+                fallbackUri: forward:/api/user-service/api/mitocode/user
 
 #Actuator configuration         
 management:
