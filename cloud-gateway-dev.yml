@@ -11,7 +11,7 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 8
         slowCallRateThreshold: 20
         slowCallDurationThreshold: 500ms
-        automaticTransitionFromOpenToHalfOpenEnabled: true
+        automaticTransitionFromOpenToHalfOpenEnabled: false
     instances:
       mitocode-product:
         base-config: product-service-cb
