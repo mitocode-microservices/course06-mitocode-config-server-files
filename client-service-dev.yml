@@ -21,7 +21,7 @@ resilience4j:
       product-service-cb:
         slidingWindowSize: 12
         failureRateThreshold: 40
-        waitDurationInOpenState: 10
+        waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 8
         slowCallRateThreshold: 20
         slowCallDurationThreshold: 500ms
@@ -29,7 +29,7 @@ resilience4j:
       user-service-cb:
         slidingWindowSize: 12
         failureRateThreshold: 40
-        waitDurationInOpenState: 10
+        waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 8
         slowCallRateThreshold: 20
         slowCallDurationThreshold: 500ms
