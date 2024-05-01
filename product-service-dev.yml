@@ -1,6 +1,16 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9020}
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8763/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
 
 ### Mongo database configuration
 spring:
