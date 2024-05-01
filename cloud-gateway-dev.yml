@@ -1,6 +1,21 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9080}
 
+resilience4j:
+  circuitbreaker:
+    configs:
+      product-service-cb:
+        slidingWindowSize: 12
+        failureRateThreshold: 40
+        waitDurationInOpenState: 20
+        permittedNumberOfCallsInHalfOpenState: 8
+        slowCallRateThreshold: 20
+        slowCallDurationThreshold: 500ms
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+    instances:
+      mitocode-product:
+        base-config: product-service-cb
+
 # Cloud Gateway Routes
 spring:
   cloud:
@@ -26,6 +41,9 @@ spring:
             #     headerValue: MitocodeValue  
             - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
             - name: CircuitBreaker
+              args:
+                name: mitocode-product
+                statusCodes: 400,401,403,500,503,504
 
 #Actuator configuration         
 management:
