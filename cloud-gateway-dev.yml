@@ -25,3 +25,11 @@ spring:
             #     headerKey: MitocodeKey
             #     headerValue: MitocodeValue  
             - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
+
+#Actuator configuration         
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        base-path: /actuator
