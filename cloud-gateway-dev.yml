@@ -28,6 +28,7 @@ spring:
             - Path=/api/user-service/**
           filters:
             - StripPrefix=2
+            - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
 
         - id: product-service-route
           uri: lb://product-service # http://service1.com, http://service2.com
@@ -39,7 +40,7 @@ spring:
             #   args: 
             #     headerKey: MitocodeKey
             #     headerValue: MitocodeValue  
-            # - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
+            - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
             - name: CircuitBreaker
               args:
                 name: mitocode-product
