@@ -25,6 +25,7 @@ spring:
             #     headerKey: MitocodeKey
             #     headerValue: MitocodeValue  
             - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
+            - name: CircuitBreaker
 
 #Actuator configuration         
 management:
