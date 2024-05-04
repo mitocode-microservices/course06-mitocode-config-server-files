@@ -5,6 +5,9 @@ spring:
   security:
     oauth2:
       client:
+        provider:
+          mitocode-realm-06:
+            issuer-uri: http://localhost:8080/realms/mitocode-realm-06
         registration:
           mitocode-realm-06:
             provider: mitocode-realm-06
