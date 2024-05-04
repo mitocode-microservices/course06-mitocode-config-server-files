@@ -1,2 +1,13 @@
 server:
   port: 9099
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+          # google:
+          # facebook:
+            client-id: Ov23li3IlFRmyQcvjLB7
+            client-secret: 58d1d3ba0c8308927ba706e5f97438fbae9726d4
