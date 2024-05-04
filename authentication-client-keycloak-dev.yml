@@ -1,0 +1,15 @@
+server:
+  port: 9099
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          mitocode-realm-06:
+            provider: mitocode-realm-06
+            client-name: mitocode-keycloak-client
+            client-id: mitocode-keycloak-client
+            client-secret: AsVhm1Eku9WL5fnTCgM6tSXN3VnWDsyu
+            scope: openid
+            authorization-grant-type: authorization_code
