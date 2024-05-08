@@ -1,0 +1,14 @@
+server:
+  port: 9088
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mitocode:mitocode@localhost:27017/mitocode?authSource=admin
+
+mitocode:
+  security:
+    client: mitocodeClient
+    secret: mitocodeSecret
+    key: mitocodeKey
