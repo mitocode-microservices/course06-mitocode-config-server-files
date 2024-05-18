@@ -1,0 +1,76 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9080}
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      product-service-cb:
+        slidingWindowSize: 12
+        failureRateThreshold: 40
+        waitDurationInOpenState: 20s
+        permittedNumberOfCallsInHalfOpenState: 8
+        slowCallRateThreshold: 20
+        slowCallDurationThreshold: 500ms
+        automaticTransitionFromOpenToHalfOpenEnabled: false
+    instances:
+      mitocode-product:
+        base-config: product-service-cb
+
+# Cloud Gateway Routes
+spring:
+  cloud:
+    gateway:
+      routes:        
+
+        - id: user-service-route
+          uri: lb://user-service # http://service1.com, http://service2.com
+          predicates:
+            - Path=/api/user-service/**
+          filters:
+            - StripPrefix=2
+
+        - id: product-service-route
+          uri: lb://product-service # http://service1.com, http://service2.com
+          predicates:
+            - Path=/api/product-service/**
+          filters:
+            - StripPrefix=2
+            # - name: ProductServiceFilter
+            #   args: 
+            #     headerKey: MitocodeKey
+            #     headerValue: MitocodeValue  
+            - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
+            - name: CircuitBreaker
+              args:
+                name: mitocode-product
+                statusCodes: 400,401,403,500,503,504
+                fallbackUri: forward:/api/user-service/api/mitocode/user
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/mitocode-realm-06
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+
+#Actuator configuration         
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        base-path: /actuator
+
+mitocode:
+  security:
+    key: 9b2af5eb23412302211ad7c71cdc49332f5acac408d9cceccdc9b2a7d3ceebf7184be0c46486567d673730fe59a10a48d21f6f5c01baea14b811f2bd3994efe301bc186615ed0c1e3222bb57bb2cb36d72c80e6a62eaf6a01993c783fce6cc5a
+
+
+
+
+jwt:
+  auth:
+    converter:
+      resourceId: mitocode-oauth-client
+      principalAttribute: preferred_username
