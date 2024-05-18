@@ -5,3 +5,17 @@ spring:
   data:
     mongodb:
       uri: mongodb://mitocode:mitocode@localhost:27017/mitocode?authSource=admin
+
+#Actuator configuration
+info:
+  app:
+    name: Product Service Mitocode
+    description: Módulo de la arquitectura de Microservicios que disponibiliza la información de los productos
+    version: 0.0.1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        base-path: /actuator
