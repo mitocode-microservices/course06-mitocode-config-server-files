@@ -14,6 +14,16 @@ management:
       exposure:
         include: '*'
         base-path: /actuator
+  tracing:
+    sampling:
+      probability: 1.0
+
+# Logging Configuration
+logging:
+  level:
+    org:
+      springframework:
+        web: ALL
 
 resilience4j:
   circuitbreaker:

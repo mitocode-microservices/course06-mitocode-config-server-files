@@ -49,3 +49,10 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+# Logging Configuration
+logging:
+  level:
+    org:
+      springframework:
+        web: ALL

@@ -46,13 +46,27 @@ spring:
                 statusCodes: 400,401,403,500,503,504
                 fallbackUri: forward:/api/user-service/api/mitocode/user
 
-#Actuator configuration         
+# Actuator configuration         
 management:
   endpoints:
     web:
       exposure:
         include: '*'
         base-path: /actuator
+# Zipkin configuration   
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+# Logging Configuration
+logging:
+  level:
+    reactor:
+      netty: ALL
+
+
+
 
 mitocode:
   security:
