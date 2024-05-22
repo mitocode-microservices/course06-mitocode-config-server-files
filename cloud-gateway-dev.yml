@@ -60,13 +60,10 @@ management:
 
 
 # Logging Configuration
-logging:
-  level:
-    reactor:
-      netty: ALL
-
-
-
+# logging:
+#   level:
+#     reactor:
+#       netty: ALL
 
 mitocode:
   security:
