@@ -39,12 +39,12 @@ spring:
             #   args: 
             #     headerKey: MitocodeKey
             #     headerValue: MitocodeValue  
-            - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
-            - name: CircuitBreaker
-              args:
-                name: mitocode-product
-                statusCodes: 400,401,403,500,503,504
-                fallbackUri: forward:/api/user-service/api/mitocode/user
+            # - ProductFilter=MitocodeKey,MitocodeValue,CustomKey
+            # - name: CircuitBreaker
+            #   args:
+            #     name: mitocode-product
+            #     statusCodes: 400,401,403,500,503,504
+            #     fallbackUri: forward:/api/user-service/api/mitocode/user
 
 # Actuator configuration         
 management:
