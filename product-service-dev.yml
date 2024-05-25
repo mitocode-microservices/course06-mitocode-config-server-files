@@ -61,7 +61,7 @@ logging:
 springdoc:
   api-docs:
     path: /api-docs
-    enabled: true
+    enabled: false
     # http://127.0.0.1:9020/api-docs
   swagger-ui:
     enabled: false
