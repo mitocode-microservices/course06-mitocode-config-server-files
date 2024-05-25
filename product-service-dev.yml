@@ -64,6 +64,6 @@ springdoc:
     enabled: false
     # http://127.0.0.1:9020/api-docs
   swagger-ui:
-    enabled: true 
+    enabled: false 
     path: /openapi.yml
     # http://127.0.0.1:9020/swagger-ui/index.html
