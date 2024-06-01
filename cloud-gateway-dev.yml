@@ -49,7 +49,7 @@ spring:
         - id: product-query-service-route
           uri: lb://product-query-service # 9022
           predicates:
-            - Path=/api/product-service/**
+            - Path=/api/product-query-service/**
             - Weight=product-service, 90
           filters:
             - StripPrefix=2
@@ -57,7 +57,7 @@ spring:
         - id: product-query-service-tobe-route
           uri: lb://product-query-service-tobe # 7777
           predicates:
-            - Path=/api/product-service/**
+            - Path=/api/product-query-service/**
             - Weight=product-service, 10
           filters:
             - StripPrefix=2
