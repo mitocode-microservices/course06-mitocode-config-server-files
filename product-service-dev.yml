@@ -1,15 +1,6 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9020}
 
-mitocode:
-  datasources:
-    - config01:
-      url:
-      username:
-      password: 
-    - config02:
-      url:
-      username:
 ### Mongo database configuration
 spring:
   data:
