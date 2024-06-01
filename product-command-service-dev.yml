@@ -1,17 +1,33 @@
 server:
-  port: ${CUSTOM.SERVER.PORT:9990}
+  port: ${CUSTOM.SERVER.PORT:9920}
 
 ### Mongo database configuration
 spring:
   data:
     mongodb:
-      uri: ${MONGODB.URL.CONNECTION:mongodb://mitocode:mitocode@localhost:27018/mitocode?authSource=admin}
+      uri: ${MONGODB.URL.CONNECTION:mongodb://mitocode:mitocode@localhost:27017/mitocode?authSource=admin}
 
+### Postgresql database configuration
+  jpa:
+    databasePlatform: 
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: ${POSTGRESQL.URL.CONNECTION:jdbc:postgresql://localhost:5432/mitocode}
+    username: mitocode
+    password: mitocode
+#hibernate:
+  #dialect: org.hibernate.dialect.PostgreSQLDialect
 
 #Actuator configuration
 info:
   app:
-    name: Audit Service Mitocode
+    name: Product Service Mitocode
     description: Módulo de la arquitectura de Microservicios que disponibiliza la información de los productos
     version: 0.0.1
 
