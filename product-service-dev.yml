@@ -40,7 +40,10 @@ management:
   tracing:
     sampling:
       probability: 1.0
-
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN.SERVER.HOSTNAME:http://localhost:9411/api/v2/spans}
+      
 # Logging Configuration
 logging:
   level:
@@ -62,6 +65,6 @@ springdoc:
 # Kafka Configuration
 mitocode:
   kafka:
-    serverHost: 127.0.0.1
+    serverHost: ${KAFKA.SERVER.HOSTNAME:127.0.0.1}
     serverPort: 9092
     topicName: mitocode
